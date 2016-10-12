@@ -1,0 +1,71 @@
+/**
+ *
+ * @package phpBB Extension - mChat Icons Menu
+ * @copyright (c) 2016 kasimi
+ * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+ *
+ */
+
+.mchat-buttons + .mchat-message-header + .mchat-text {
+	margin-right: 30px;
+}
+
+.imageset.icon_mchat_message_icons {
+	background-image: url("./images/icon_mchat_message_icons.png");
+	padding-left: 16px;
+	padding-top: 16px;
+}
+
+.mchat-wrapper .mchat-buttons span.icon_mchat_message_icons {
+	top: 5px;
+	right: 12px;
+}
+
+.dropdown-container-mchat-message-icons .dropdown {
+	padding: 9px 0 0;
+}
+
+.dropdown-container-mchat-message-icons .dropdown {
+	top: -12px;
+	right: 36px;
+}
+
+.dropdown-container-mchat-message-icons .contact-icons a {
+	padding: 6px;
+	border: 0;
+}
+
+.dropdown-container-mchat-message-icons .arrow:after,
+.dropdown-container-mchat-message-icons .arrow:before {
+	z-index: 5;
+	left: calc(100% - 1px);
+	top: 25px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.dropdown-container-mchat-message-icons .arrow:after {
+	border-color: rgba(192, 241, 77, 0);
+	border-left-color: white;
+	border-width: 10px;
+	margin-top: -10px;
+}
+
+.dropdown-container-mchat-message-icons .arrow:before {
+	border-color: rgba(185, 185, 185, 0);
+	border-left-color: #B9B9B9;
+	border-width: 11px;
+	margin-top: -11px;
+}
+
+.mchat-wrapper .mchat-buttons li {
+	opacity: 1;
+}
+
+.mchat-wrapper li:hover .mchat-buttons li {
+	opacity: 1;
+}
