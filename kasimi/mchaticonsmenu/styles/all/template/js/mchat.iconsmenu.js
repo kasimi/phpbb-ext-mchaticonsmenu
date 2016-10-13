@@ -1,7 +1,7 @@
 /**
  *
  * @package phpBB Extension - mChat Icons Menu
- * @copyright (c) 2016 kasimi
+ * @copyright (c) 2016 kasimi - https://kasimi.net
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
