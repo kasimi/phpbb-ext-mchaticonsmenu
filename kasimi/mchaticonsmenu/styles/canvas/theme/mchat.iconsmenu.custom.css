@@ -14,11 +14,15 @@
 	padding-right: 10px;
 }
 
+.mchat-buttons-wrapper .mchat-buttons li {
+	padding-top: 3px !important;
+}
+
 .dropdown-container-mchat-message-icons .dropdown {
-	top: 0;
+	top: 2px;
 }
 
 .dropdown-container-mchat-message-icons .arrow::after,
 .dropdown-container-mchat-message-icons .arrow::before {
-	top: 16px;
+	top: 14px;
 }
