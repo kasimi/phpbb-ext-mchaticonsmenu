@@ -1,10 +1,10 @@
-<!-- IF MCHAT_ICONSMENU_ALWAYS_AUTH -->
+{% if MCHAT_ICONSMENU_ALWAYS_AUTH %}
 <dl>
-	<dt><label for="user_mchat_iconsmenu_always">{L_MCHAT_ICONSMENU_ALWAYS}{L_COLON}</label><br />
-		<span>{L_MCHAT_ICONSMENU_ALWAYS_EXPLAIN}</span></dt>
+	<dt><label for="user_mchat_iconsmenu_always">{{ lang('MCHAT_ICONSMENU_ALWAYS') ~ lang('COLON') }}</label><br />
+		<span>{{ lang('MCHAT_ICONSMENU_ALWAYS_EXPLAIN') }}</span></dt>
 	<dd>
-		<label><input type="radio" name="user_mchat_iconsmenu_always" value="1"<!-- IF MCHAT_ICONSMENU_ALWAYS --> id="user_mchat_iconsmenu_always" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-		<label><input type="radio" name="user_mchat_iconsmenu_always" value="0"<!-- IF not MCHAT_ICONSMENU_ALWAYS --> id="user_mchat_iconsmenu_always" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+		<label><input type="radio" name="user_mchat_iconsmenu_always" value="1"{% if MCHAT_ICONSMENU_ALWAYS %} id="user_mchat_iconsmenu_always" checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+		<label><input type="radio" name="user_mchat_iconsmenu_always" value="0"{% if not MCHAT_ICONSMENU_ALWAYS %} id="user_mchat_iconsmenu_always" checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 	</dd>
 </dl>
-<!-- ENDIF -->
+{% endif %}
