@@ -15,7 +15,7 @@ if (!defined('IN_PHPBB'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+	$lang = [];
 }
 
 // DEVELOPERS PLEASE NOTE
@@ -33,7 +33,7 @@ if (empty($lang) || !is_array($lang))
 // Some characters for use
 // ’ » “ ” …
 
-$lang = array_merge($lang, array(
+$lang = array_merge($lang, [
 	'MCHAT_ICONSMENU_ALWAYS'			=> 'Always display icons menu',
 	'MCHAT_ICONSMENU_ALWAYS_EXPLAIN'	=> 'If set to no the menu is only displayed on mobile resolutions.',
-));
+]);

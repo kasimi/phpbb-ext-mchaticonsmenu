@@ -53,13 +53,13 @@ abstract class base implements EventSubscriberInterface
 	 */
 	static public function getSubscribedEvents()
 	{
-		return array(
+		return [
 			'dmzx.mchat.ucp_settings_modify'							=> 'ucp_settings_modify',
-			'core.acp_users_prefs_modify_template_data'					=> array('acp_add_lang', 10),
-			'dmzx.mchat.acp_globalusersettings_modify_template_data'	=> array('acp_add_lang', 10),
-			'dmzx.mchat.ucp_modify_template_data'						=> array('ucp_add_lang', 10),
-			'core.permissions'											=> array('permissions', -10),
-		);
+			'core.acp_users_prefs_modify_template_data'					=> ['acp_add_lang', 10],
+			'dmzx.mchat.acp_globalusersettings_modify_template_data'	=> ['acp_add_lang', 10],
+			'dmzx.mchat.ucp_modify_template_data'						=> ['ucp_add_lang', 10],
+			'core.permissions'											=> ['permissions', -10],
+		];
 	}
 
 	/**
@@ -85,7 +85,7 @@ abstract class base implements EventSubscriberInterface
 	{
 		if ($this->settings !== null && !empty($this->listener_config['lang'][$panel]))
 		{
-			call_user_func_array(array($this->user, 'add_lang_ext'), $this->listener_config['lang'][$panel]);
+			call_user_func_array([$this->user, 'add_lang_ext'], $this->listener_config['lang'][$panel]);
 		}
 	}
 
@@ -96,11 +96,11 @@ abstract class base implements EventSubscriberInterface
 	{
 		if ($this->settings !== null && !empty($this->listener_config['settings']['ucp']))
 		{
-			$ucp_settings = array();
+			$ucp_settings = [];
 
 			foreach ($this->listener_config['settings']['ucp'] as $setting_name => $setting_config)
 			{
-				$ucp_settings[$setting_name] = array('default' => $setting_config['default']);
+				$ucp_settings[$setting_name] = ['default' => $setting_config['default']];
 			}
 
 			$event['ucp_settings'] = array_merge($event['ucp_settings'], $ucp_settings);
@@ -118,10 +118,10 @@ abstract class base implements EventSubscriberInterface
 
 			foreach (array_keys($this->listener_config['settings']['ucp']) as $setting_name)
 			{
-				$permissions['u_' . $setting_name] = array(
+				$permissions['u_' . $setting_name] = [
 					'lang'	=> 'ACL_U_' . strtoupper($setting_name),
 					'cat'	=> 'mchat_user_config',
-				);
+				];
 			}
 
 			$event['permissions'] = $permissions;

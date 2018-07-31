@@ -42,17 +42,17 @@ class listener extends base
 	 */
 	protected function get_listener_config()
 	{
-		return array(
-			'lang' => array(
-				'acp' => array('kasimi/mchaticonsmenu', array('mchaticonsmenu_ucp')),
-				'ucp' => array('kasimi/mchaticonsmenu', array('mchaticonsmenu_ucp')),
-			),
-			'settings' => array(
-				'ucp' => array(
-					'mchat_iconsmenu_always' => array('default' => 1),
-				),
-			),
-		);
+		return [
+			'lang' => [
+				'acp' => ['kasimi/mchaticonsmenu', ['mchaticonsmenu_ucp']],
+				'ucp' => ['kasimi/mchaticonsmenu', ['mchaticonsmenu_ucp']],
+			],
+			'settings' => [
+				'ucp' => [
+					'mchat_iconsmenu_always' => ['default' => 1],
+				],
+			],
+		];
 	}
 
 	/**
@@ -60,9 +60,9 @@ class listener extends base
 	 */
 	static public function getSubscribedEvents()
 	{
-		return array_merge(parent::getSubscribedEvents(), array(
+		return array_merge(parent::getSubscribedEvents(), [
 			'dmzx.mchat.global_modify_template_data' => 'assign_template_data',
-		));
+		]);
 	}
 
 	/**
