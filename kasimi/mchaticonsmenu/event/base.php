@@ -11,14 +11,14 @@
 namespace kasimi\mchaticonsmenu\event;
 
 use dmzx\mchat\core\settings;
-use phpbb\user;
-use Symfony\Component\EventDispatcher\Event;
+use phpbb\event\data;
+use phpbb\language\language;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 abstract class base implements EventSubscriberInterface
 {
-	/** @var user */
-	protected $user;
+	/** @var language */
+	protected $lang;
 
 	/** @var settings */
 	protected $settings;
@@ -27,17 +27,15 @@ abstract class base implements EventSubscriberInterface
 	private $listener_config;
 
 	/**
-	 * Constructor
-	 *
-	 * @param user		$user
+	 * @param language	$lang
 	 * @param settings	$settings
 	 */
 	public function __construct(
-		user $user,
+		language $lang,
 		settings $settings = null
 	)
 	{
-		$this->user		= $user;
+		$this->lang		= $lang;
 		$this->settings	= $settings;
 
 		$this->listener_config = $this->get_listener_config();
@@ -51,7 +49,7 @@ abstract class base implements EventSubscriberInterface
 	/**
 	 * @return array
 	 */
-	static public function getSubscribedEvents()
+	public static function getSubscribedEvents()
 	{
 		return [
 			'dmzx.mchat.ucp_settings_modify'							=> 'ucp_settings_modify',
@@ -63,17 +61,17 @@ abstract class base implements EventSubscriberInterface
 	}
 
 	/**
-	 * @param Event $event
+	 *
 	 */
-	public function acp_add_lang($event)
+	public function acp_add_lang()
 	{
 		$this->add_lang('acp');
 	}
 
 	/**
-	 * @param Event $event
+	 *
 	 */
-	public function ucp_add_lang($event)
+	public function ucp_add_lang()
 	{
 		$this->add_lang('ucp');
 	}
@@ -85,12 +83,12 @@ abstract class base implements EventSubscriberInterface
 	{
 		if ($this->settings !== null && !empty($this->listener_config['lang'][$panel]))
 		{
-			call_user_func_array([$this->user, 'add_lang_ext'], $this->listener_config['lang'][$panel]);
+			call_user_func_array([$this->lang, 'add_lang'], $this->listener_config['lang'][$panel]);
 		}
 	}
 
 	/**
-	 * @param object $event
+	 * @param data $event
 	 */
 	public function ucp_settings_modify($event)
 	{
@@ -108,7 +106,7 @@ abstract class base implements EventSubscriberInterface
 	}
 
 	/**
-	 * @param Event $event
+	 * @param data $event
 	 */
 	public function permissions($event)
 	{

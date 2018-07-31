@@ -11,9 +11,8 @@
 namespace kasimi\mchaticonsmenu\event;
 
 use dmzx\mchat\core\settings;
+use phpbb\language\language;
 use phpbb\template\template;
-use phpbb\user;
-use Symfony\Component\EventDispatcher\Event;
 
 class listener extends base
 {
@@ -21,19 +20,17 @@ class listener extends base
 	protected $template;
 
 	/**
-	 * Constructor
-	 *
-	 * @param user		$user
+	 * @param language	$lang
 	 * @param template	$template
 	 * @param settings	$settings
 	 */
 	public function __construct(
-		user $user,
+		language $lang,
 		template $template,
 		settings $settings = null
 	)
 	{
-		parent::__construct($user, $settings);
+		parent::__construct($lang, $settings);
 		$this->template = $template;
 	}
 
@@ -44,8 +41,8 @@ class listener extends base
 	{
 		return [
 			'lang' => [
-				'acp' => ['kasimi/mchaticonsmenu', ['mchaticonsmenu_ucp']],
-				'ucp' => ['kasimi/mchaticonsmenu', ['mchaticonsmenu_ucp']],
+				'acp' => ['mchaticonsmenu_ucp', 'kasimi/mchaticonsmenu'],
+				'ucp' => ['mchaticonsmenu_ucp', 'kasimi/mchaticonsmenu'],
 			],
 			'settings' => [
 				'ucp' => [
@@ -58,7 +55,7 @@ class listener extends base
 	/**
 	 * @return array
 	 */
-	static public function getSubscribedEvents()
+	public static function getSubscribedEvents()
 	{
 		return array_merge(parent::getSubscribedEvents(), [
 			'dmzx.mchat.global_modify_template_data' => 'assign_template_data',
@@ -66,9 +63,9 @@ class listener extends base
 	}
 
 	/**
-	 * @param Event $event
+	 *
 	 */
-	public function assign_template_data($event)
+	public function assign_template_data()
 	{
 		$this->template->assign_var('MCHAT_ICONSMENU_ALWAYS', $this->settings->cfg('mchat_iconsmenu_always'));
 	}

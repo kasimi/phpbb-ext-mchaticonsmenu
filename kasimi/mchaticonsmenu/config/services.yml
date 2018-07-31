@@ -2,7 +2,7 @@ services:
     kasimi.mchaticonsmenu.listener:
         class: kasimi\mchaticonsmenu\event\listener
         arguments:
-            - '@user'
+            - '@language'
             - '@template'
             - '@?dmzx.mchat.settings'
         tags:
