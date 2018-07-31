@@ -38,16 +38,14 @@
 	margin-right: 30px;
 }
 
-.imageset.mchat-message-icons-menu-black {
-	background-image: url("./images/icon_mchat_message_icons_black.png");
-	padding-left: 16px;
-	padding-top: 16px;
+.dropdown-container-mchat-message-icons .dropdown-trigger {
+	position: absolute;
+	top: 8px;
+	right: 0;
 }
 
-.imageset.mchat-message-icons-menu-white {
-	background-image: url("./images/icon_mchat_message_icons_white.png");
-	padding-left: 16px;
-	padding-top: 16px;
+.dropdown-container-mchat-message-icons .dropdown-trigger .icon {
+	font-size: 18px;
 }
 
 .mchat-wrapper .mchat-buttons span.mchat-message-icons-menu {
