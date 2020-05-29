@@ -6,6 +6,10 @@
  *
  */
 
+.mchat-buttons {
+	height: 16px;
+}
+
 .mchat-wrapper .dropdown-container-mchat-message-icons .mchat-buttons {
 	top: 0;
 }
